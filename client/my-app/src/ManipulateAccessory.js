@@ -9,9 +9,9 @@ import React from 'react'
         <p>{accessories}</p>
         <p>{description}</p>
         <p>price:{price}</p>
-        <button onClick={toggleForm} className="btnn">
+        {/* <button onClick={toggleForm} className="btnn">
         Update
-      </button>
+      </button> */}
      {/* <button onClick={()=> updateAccessory(id)} className="btn" >update</button> */}
      <button onClick={()=> deleteAccessory(id)} className="btnnn" >delete</button>
     </div>
