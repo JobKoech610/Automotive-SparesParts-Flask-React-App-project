@@ -4,12 +4,10 @@ from random import choice as rc
 import random
 from faker import Faker
 from app import app
-
-
 from models import db, Showroom, Customer, Showroom_customer
 
 fake = Faker()
-
+# db.init_app(app)
 with app.app_context():
 
         Showroom.query.delete()
