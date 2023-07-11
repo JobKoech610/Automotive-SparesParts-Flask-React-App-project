@@ -1,9 +1,10 @@
 import React, { useEffect, useState} from 'react'
 import ManipulateAccessory from './ManipulateAccessory'
+// import Search from './search'
 
 const AccessoryList = ({id})=> {
     const [data, setData] = useState([])
-    // const[searchTerm, onSearchChange]=useState("")
+    // const[searchTerm, setSearchTerm]=useState("")
     const[patch,setPatch]=useState({
         location: "", 
         accessories: "",
@@ -61,15 +62,18 @@ function updateAccessory(id){
  <ManipulateAccessory key={index} id={item.id} updateAccessory={updateAccessory} toggleForm={toggleForm} deleteAccessory={deleteAccessory} location={item.location} price={item.price} description={item.description} image={item.image}/>
   
  )
-//  const displayedAccessories = accessories.filter((accessory) => {
-//   return accessories.name.toLowerCase().includes(searchTerm.toLowerCase());
+//  const displayedAccessories = data.filter((accessory) => {
+//   return accessory.name.toLowerCase().includes(searchTerm.toLowerCase());
 // });
 
-// if(!accessories) return <h1>...loading</h1>
+// if(!data) return <h1>...loading</h1>
+// console.log(displayedAccessories);
    
 
 return (
     <div className='charac'>
+      {/* <Search searchTerm={searchTerm} onSearchChange={setSearchTerm}/> */}
+      {/* <ManipulateAccessory data={displayedAccessories}/> */}
         {access}
         {/* <button onClick={toggleForm} className="btn">
         Update

@@ -5,6 +5,7 @@ import Navbar from './Navbar';
 import AccessoryList from './AccessoryList'
 import Accessory from './Accessory'
 import Home from './Home'
+import Search from './search';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
        <Header/>
        {/* <AccessoryList /> */}
       <Navbar/>
+      <Search/>
       <Routes>
         <Route exact path='/'element={<Home/>}/>
         <Route path='/accessory' element={<Accessory/>}/>
