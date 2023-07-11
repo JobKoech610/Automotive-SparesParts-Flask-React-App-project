@@ -5,6 +5,8 @@ import random
 from faker import Faker
 from app import app
 
+db.init_app(app)
+
 
 from models import db, Showroom, Customer, Showroom_customer
 
