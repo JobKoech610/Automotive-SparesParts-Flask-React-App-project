@@ -1,13 +1,17 @@
+import os
 from flask import Flask, jsonify, request, make_response
 from flask_migrate import Migrate
 from flask_restful import Api, Resource
 from flask_cors import CORS
 from models import db, Showroom, Customer, Showroom_customer
-
+from dotenv import load_dotenv
+load_dotenv()
 app = Flask(__name__)
 CORS(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URI')
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.json.compact = False
 
 migrate = Migrate(app, db)
 
@@ -47,7 +51,6 @@ class Show(Resource):
             price = data['price'],
             image = data['image']
         )
-        
 
         db.session.add(new_data)
         db.session.commit()
@@ -57,9 +60,9 @@ class Show(Resource):
 api.add_resource(Show,"/showroom")        
 
 class showByAccesories(Resource):
-    def get(self,accessories):
+    def get(self,id):
         names = []
-        for show in Showroom.query.filter_by(accessories=accessories).all():
+        for show in Showroom.query.filter_by(id=id).all():
             data = show.to_dict()
             names.append(data)
     
@@ -67,8 +70,9 @@ class showByAccesories(Resource):
 
     def patch(self,id):
         show = Showroom.query.filter_by(id=id).first()
-        for attr in request.form:
-            setattr(show,attr,request.form[attr])
+        data = request.get_json()
+        for attr in data:
+            setattr(show,attr,data[attr])
         db.session.add(show)
         db.session.commit()
         response_dict = show.to_dict()
@@ -78,6 +82,7 @@ class showByAccesories(Resource):
         return response 
 
     def delete(self,id):
+        print(id)
         show = Showroom.query.filter_by(id=id).first()
         db.session.delete(show)
         db.session.commit()
@@ -100,7 +105,18 @@ class Customers(Resource):
         response = make_response(jsonify(customer),200)
         return response
     
-api.add_resource(Customers,"/customer")    
+api.add_resource(Customers,"/customer")  
+#search
+class LocationSearch(Resource):
+    def get(self, location):
+        location = []
+        for show in Showroom.query.filter_by(location=location).all():
+            data = show.to_dict()
+            location.append(data)
+    
+        return make_response(jsonify(location),200)
+
+api.add_resource(LocationSearch, '/location/<string:location>')
 
 if __name__ == '__main__':
     app.run(port=5555)
