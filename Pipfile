@@ -11,8 +11,13 @@ sqlalchemy-serializer = "*"
 flask-sqlalchemy = "*"
 faker = "*"
 flask-cors = "*"
+python-dotenv = "*"
+honcho = "*"
+gunicorn = "*"
+psycopg2-binary = "*"
+npm = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.8"
+python_version = "3.8.13"
