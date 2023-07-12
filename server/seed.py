@@ -4,12 +4,7 @@ from random import choice as rc
 import random
 from faker import Faker
 from app import app
-<<<<<<< HEAD
-
-
-=======
 from models import db, Showroom, Customer, Showroom_customer
->>>>>>> 49e8a9c6cc08cd88067d8681db98c1e503ee65e2
 
 
 from models import db, Showroom, Customer, Showroom_customer
