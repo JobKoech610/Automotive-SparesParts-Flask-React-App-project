@@ -1,30 +1,47 @@
-from flask import Flask, jsonify, request, make_response
+import os
+
+from flask import Flask, jsonify, request, make_response, render_template
 from flask_migrate import Migrate
 from flask_restful import Api, Resource
 from flask_cors import CORS
 from models import db, Showroom, Customer, Showroom_customer
+from dotenv import load_dotenv
+load_dotenv()
 
-app = Flask(__name__)
+app = Flask(
+    __name__,
+    static_url_path='',
+    static_folder='../client/build',
+    template_folder='../client/build'
+)
 CORS(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URI')
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.json.compact = False
 
 migrate = Migrate(app, db)
 
 db.init_app(app)
 api = Api(app)
 
-class Index(Resource):
-    def get(self):
-        response_dict = {
-            "welcome": "Welcome to the home page",
-        }
-        response = make_response(
-            jsonify(response_dict),
-            200
-        )
-        return response
-api.add_resource(Index, '/home')
+@app.route('/')
+@app.route('/<int:id>')
+def index(id=0):
+    return render_template("index.html")
+
+
+# class Index(Resource):
+#     def get(self):
+#         response_dict = {
+#             "welcome": "Welcome to the home page",
+#         }
+#         response = make_response(
+#             jsonify(response_dict),
+#             200
+#         )
+#         return response
+# api.add_resource(Index, '/home')
 
 #get  showroom
 class Show(Resource):
