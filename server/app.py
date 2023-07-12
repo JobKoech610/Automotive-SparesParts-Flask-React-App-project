@@ -15,7 +15,7 @@ app = Flask(
     template_folder='../client/build'
 )
 CORS(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('postgresql://auto_db_user:5bC3AyBGlRVrgGK2DK0xYnha4wye8yIA@dpg-cin8975gkuvvgndngph0-a.oregon-postgres.render.com/auto_db')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://auto_db_user:5bC3AyBGlRVrgGK2DK0xYnha4wye8yIA@dpg-cin8975gkuvvgndngph0-a.oregon-postgres.render.com/auto_db'
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.json.compact = False
