@@ -17,7 +17,7 @@ const AccessoryList = ({id})=> {
 
     
 useEffect(()=>{
-    fetch('http://127.0.0.1:5555/showroom')
+    fetch('/showroom')
     .then(r => r.json())
     .then(data =>setData(data))
 },[])
