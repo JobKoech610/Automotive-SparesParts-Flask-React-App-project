@@ -23,7 +23,7 @@ useEffect(()=>{
 },[])
 
 function deleteAccessory(id){
-    fetch(`http://127.0.0.1:5555/showroom/${id}`,{
+    fetch(`/showroom/${id}`,{
       method: "DELETE",
     })
     .then(resp => resp.json())
@@ -39,7 +39,7 @@ function handleOnChange(event) {
     })
   }
 function updateAccessory(id){
-    fetch(`http://127.0.0.1:5555/showroom/${id}`,{
+    fetch(`/showroom/${id}`,{
       method: "PATCH",
       headers: {
         "Content-Type": "application/json"

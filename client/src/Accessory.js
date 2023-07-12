@@ -46,7 +46,7 @@ function Accessory() {
       },
       body:JSON.stringify(formData),
     }
-    fetch('http://127.0.0.1:5555/showroom',post)
+    fetch('/showroom',post)
     .then(response => response.json())
     .then(data => setFormData(data))
     .catch (error => console.log (error))
