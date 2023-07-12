@@ -1,0 +1,117 @@
+.App {
+  text-align: center;
+}
+/* .body{
+  color: aqua;
+} */
+.item{
+  margin-top: 20px;
+  border: 1px solid black;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex; 
+  padding: auto;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+  border-radius: 15px;
+  height: 40em;
+  width: 300px;
+}
+.img{
+  display: block;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  border:2px solid;
+  height: 50%;
+  border-radius: 15px;
+}
+.charac{
+  background-color: aliceblue;
+  height: 20%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+  padding: auto;
+}
+.btn{
+  margin-left: auto;
+  margin-right: auto;
+  padding: auto;
+  height: 5%;
+  width: 10;
+}
+.car{
+  height:1000px;
+}
+
+.body{
+  background-color: aqua;
+}
+.accessory-form{
+  padding:1%;
+}
+.input{
+  border-radius: 20px;
+  height: 30px;
+  margin: 30px;
+  color: black;
+}
+.car{
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  margin-top: 20px;
+}
+.btn{
+  height: 40px;
+  width: 150px;
+  font-size: 20px;
+  border-radius: 20px;
+  background-color: black;
+  color: white;
+}
+.link{
+  background-color: #1495c4;
+  height: 30px;
+  margin-top: 20px;
+  width: 40vw;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+  padding: 10px;
+  
+}
+
+.links {
+  text-decoration: none;
+  margin: 30px;
+  color: #fff;
+  font-size: 20px;
+
+}
+
+.btnn {
+  margin: 10px;
+  border-radius: 10px;
+  width: 70px;
+  height: 30px;
+  /* display: relative; */
+  margin-top: 60px;
+  margin-left: 15px;
+  background-color: green;
+  font-size: 15px;
+}
+
+.btnnn {
+  margin: 10px;
+  font-size: 15px;
+  background-color: red;
+  border-radius: 10px;
+  width: 70px;
+  height: 30px;
+  /* display: relative; */
+  margin-top: 60px;
+  margin-left: 15px;
+}

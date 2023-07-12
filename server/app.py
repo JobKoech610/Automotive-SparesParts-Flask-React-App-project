@@ -6,7 +6,12 @@ from flask_cors import CORS
 from models import db, Showroom, Customer, Showroom_customer
 from dotenv import load_dotenv
 load_dotenv()
-app = Flask(__name__)
+app = Flask(
+    __name__,
+    static_url_path='',
+    static_folder='../client/build',
+    template_folder='../client/build'
+)
 CORS(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URI')
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
