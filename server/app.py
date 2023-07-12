@@ -28,17 +28,17 @@ api = Api(app)
 def index(id=0):
     return render_template("index.html")
 
-class Index(Resource):
-    def get(self):
-        response_dict = {
-            "welcome": "Welcome to the home page",
-        }
-        response = make_response(
-            jsonify(response_dict),
-            200
-        )
-        return response
-api.add_resource(Index, '/home')
+# class Index(Resource):
+#     def get(self):
+#         response_dict = {
+#             "welcome": "Welcome to the home page",
+#         }
+#         response = make_response(
+#             jsonify(response_dict),
+#             200
+#         )
+#         return response
+# api.add_resource(Index, '/home')
 
 #get  showroom
 class Show(Resource):
