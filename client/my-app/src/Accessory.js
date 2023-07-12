@@ -19,7 +19,11 @@ function Accessory() {
   // }
   function handleSubmit(event) {
     event.preventDefault()
-
+    const wordCount = formData.description.trim().split(" ").length;
+    if (wordCount > 30) {
+      alert("Description should not exceed 30 words.");
+      return;
+    }
   // Validate price as integer
   const priceRegex = /^\d+$/;
   if (!priceRegex.test(formData.price)) {
